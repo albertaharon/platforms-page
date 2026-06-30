@@ -12,13 +12,15 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            min-height: 100vh;
+            background-color: #f0f4f0;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
         .page-header {
@@ -26,100 +28,101 @@
             background: linear-gradient(135deg, #198754, #20c997);
             color: white;
             text-align: center;
-            padding: 1.2rem 1rem 1rem;
-            margin-bottom: 1rem;
-            border-radius: 0 0 18px 18px;
-            box-shadow: 0 4px 20px rgba(25, 135, 84, 0.3);
+            padding: 1.4rem 1rem 1.2rem;
+            border-radius: 0 0 22px 22px;
+            box-shadow: 0 4px 24px rgba(25, 135, 84, 0.35);
+            flex-shrink: 0;
         }
 
         .page-header h1 {
-            font-size: 1.5em;
+            font-size: 1.6em;
             font-weight: 700;
-            margin-bottom: 2px;
-            letter-spacing: -0.5px;
+            margin-bottom: 3px;
         }
 
         .page-header p {
-            font-size: 0.9em;
-            opacity: 0.9;
+            font-size: 0.95em;
+            opacity: 0.92;
         }
 
-        .container {
-            max-width: 680px;
-            width: 100%;
-            padding: 12px 12px 20px;
+        .main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
         }
 
         .platforms-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 14px;
+            width: 100%;
+            max-width: 560px;
         }
 
         .platform {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 20px 16px;
-            border-radius: 10px;
+            padding: 22px 20px;
+            border-radius: 14px;
             background: white;
             border-right: 5px solid;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            transition: all 0.25s ease;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .platform:hover {
-            transform: translateX(-4px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.13);
         }
 
-        .platform:nth-child(1) { border-right-color: #198754; }
-        .platform:nth-child(2) { border-right-color: #0d6efd; }
-        .platform:nth-child(3) { border-right-color: #20c997; }
+        .platform:nth-child(1) { border-right-color: #3f51b5; }
+        .platform:nth-child(2) { border-right-color: #e65100; }
+        .platform:nth-child(3) { border-right-color: #1a237e; }
 
         .platform-logo {
-            min-width: 90px;
-            width: 90px;
-            height: 42px;
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: flex-end;
+            padding-left: 16px;
         }
 
         .platform-logo img {
-            max-width: 90px;
-            max-height: 42px;
+            max-width: 130px;
+            max-height: 55px;
             object-fit: contain;
-        }
-
-        .platform-name {
-            font-size: 1.05em;
-            font-weight: 600;
-            color: #212529;
-            flex: 1;
         }
 
         .platform-link {
             background: linear-gradient(135deg, #198754, #20c997);
             color: white;
-            padding: 9px 18px;
-            border-radius: 8px;
+            padding: 12px 26px;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.88em;
-            transition: all 0.25s ease;
+            font-weight: 700;
+            font-size: 1em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(25,135,84,0.25);
+            box-shadow: 0 3px 10px rgba(25,135,84,0.3);
+            flex-shrink: 0;
         }
 
         .platform-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 16px rgba(25, 135, 84, 0.4);
+            transform: scale(1.06);
+            box-shadow: 0 6px 18px rgba(25, 135, 84, 0.45);
         }
 
         .platform-link:active {
             transform: scale(0.96);
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 { font-size: 1.35em; }
+            .platform { padding: 18px 14px; }
+            .platform-logo img { max-width: 110px; max-height: 48px; }
+            .platform-link { padding: 11px 20px; font-size: 0.95em; }
         }
     </style>
 </head>
@@ -129,18 +132,15 @@
         <p>🎯 המלצות של אלברט אהרון</p>
     </div>
 
-    <div class="container">
+    <div class="main">
         <div class="platforms-list">
 
             <div class="platform">
                 <div class="platform-logo">
                     <img src="meitav-logo.png" alt="מיטב טרייד">
                 </div>
-
                 <a href="https://landing.meitav.co.il/he-IL/landing/trade/tradeleadsfreinds?utm_medium=7F348453D8BBF8D76EDF658AC8D24937"
-                   class="platform-link"
-                   target="_blank"
-                   rel="noopener noreferrer">
+                   class="platform-link" target="_blank" rel="noopener noreferrer">
                     לחץ כאן
                 </a>
             </div>
@@ -149,11 +149,8 @@
                 <div class="platform-logo">
                     <img src="xnes-logo.jpg" alt="אקסלנס טרייד">
                 </div>
-
                 <a href="https://xnestrade.xnes.co.il/page/101?customerCode=57053565"
-                   class="platform-link"
-                   target="_blank"
-                   rel="noopener noreferrer">
+                   class="platform-link" target="_blank" rel="noopener noreferrer">
                     לחץ כאן
                 </a>
             </div>
@@ -162,11 +159,8 @@
                 <div class="platform-logo">
                     <img src="psagot-logo.jpeg" alt="פסגות טרייד">
                 </div>
-
                 <a href="https://www.psagotrade.com/friendaffiliate/?account=284351"
-                   class="platform-link"
-                   target="_blank"
-                   rel="noopener noreferrer">
+                   class="platform-link" target="_blank" rel="noopener noreferrer">
                     לחץ כאן
                 </a>
             </div>
