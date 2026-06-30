@@ -65,41 +65,31 @@
             transform: translateX(-5px);
         }
 
-        .platform-number {
-            font-size: 1.5em;
-            font-weight: 700;
-            min-width: 40px;
-            color: white;
+        .platform-logo {
+            min-width: 80px;
+            width: 80px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        }
+
+        .platform-logo img {
+            max-width: 80px;
+            max-height: 40px;
+            object-fit: contain;
         }
 
         .platform:nth-child(1) {
             border-right-color: #1e88e5;
         }
 
-        .platform:nth-child(1) .platform-number {
-            background: #1e88e5;
-        }
-
         .platform:nth-child(2) {
             border-right-color: #f57c00;
         }
 
-        .platform:nth-child(2) .platform-number {
-            background: #f57c00;
-        }
-
         .platform:nth-child(3) {
             border-right-color: #43a047;
-        }
-
-        .platform:nth-child(3) .platform-number {
-            background: #43a047;
         }
 
         .platform-name {
@@ -159,7 +149,7 @@
 
         <div class="platforms-list">
             <div class="platform">
-                <div class="platform-number">1</div>
+                <div class="platform-logo"><img src="https://www.meitav.co.il/media/1hth1iw1/410917_logo_151x73-01.svg" alt="מיטב"></div>
                 <span class="platform-name">מיטב טרייד</span>
                 <a href="https://landing.meitav.co.il/he-IL/landing/trade/tradeleadsfreinds?utm_medium=7F348453D8BBF8D76EDF658AC8D24937" 
                    class="platform-link" 
@@ -170,7 +160,7 @@
             </div>
 
             <div class="platform">
-                <div class="platform-number">2</div>
+                <div class="platform-logo"><img src="https://www.xnes.co.il/media/j52ggxis/logoxnes.svg" alt="אקסלנס"></div>
                 <span class="platform-name">אקסלנס טרייד</span>
                 <a href="https://xnestrade.xnes.co.il/page/101?customerCode=57053565" 
                    class="platform-link" 
@@ -181,7 +171,7 @@
             </div>
 
             <div class="platform">
-                <div class="platform-number">3</div>
+                <div class="platform-logo"><img src="https://www.psagot.co.il/wp-content/uploads/2025/08/psagot_logo_heb.svg" alt="פסגות"></div>
                 <span class="platform-name">פסגות טרייד</span>
                 <a href="https://www.psagotrade.com/friendaffiliate/?account=284351" 
                    class="platform-link" 
