@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פלטפורמות מסחר - המלצות של אלברט אהרון</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .platforms-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .platform {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-right: 4px solid;
+            transition: all 0.3s ease;
+        }
+
+        .platform:hover {
+            background: #f0f0f0;
+            transform: translateX(-5px);
+        }
+
+        .platform-number {
+            font-size: 1.5em;
+            font-weight: 700;
+            min-width: 40px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .platform:nth-child(1) {
+            border-right-color: #1e88e5;
+        }
+
+        .platform:nth-child(1) .platform-number {
+            background: #1e88e5;
+        }
+
+        .platform:nth-child(2) {
+            border-right-color: #f57c00;
+        }
+
+        .platform:nth-child(2) .platform-number {
+            background: #f57c00;
+        }
+
+        .platform:nth-child(3) {
+            border-right-color: #43a047;
+        }
+
+        .platform:nth-child(3) .platform-number {
+            background: #43a047;
+        }
+
+        .platform-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+        }
+
+        .platform-link {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .platform-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .platform-link:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .platform {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .platform-link {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>פלטפורמות מסחר</h1>
+            <p style="color: #666; font-size: 0.95em;">המלצות של אלברט אהרון</p>
+        </div>
+
+        <div class="platforms-list">
+            <div class="platform">
+                <div class="platform-number">1</div>
+                <span class="platform-name">מיטב טרייד</span>
+                <a href="https://landing.meitav.co.il/he-IL/landing/trade/tradeleadsfreinds?utm_medium=7F348453D8BBF8D76EDF658AC8D24937" 
+                   class="platform-link" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    לחץ כאן
+                </a>
+            </div>
+
+            <div class="platform">
+                <div class="platform-number">2</div>
+                <span class="platform-name">אקסלנס טרייד</span>
+                <a href="https://xnestrade.xnes.co.il/page/101?customerCode=57053565" 
+                   class="platform-link" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    לחץ כאן
+                </a>
+            </div>
+
+            <div class="platform">
+                <div class="platform-number">3</div>
+                <span class="platform-name">פסגות טרייד</span>
+                <a href="https://www.psagotrade.com/friendaffiliate/?account=284351" 
+                   class="platform-link" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    לחץ כאן
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
