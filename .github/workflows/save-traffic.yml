@@ -1,0 +1,30 @@
+name: Save Traffic Stats
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch and save traffic data
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          VIEWS=$(gh api repos/albertaharon/platforms-page/traffic/views --jq ".views[] | select(.timestamp | startswith(\"$DATE\")) | .count" 2>/dev/null || echo 0)
+          UNIQUES=$(gh api repos/albertaharon/platforms-page/traffic/views --jq ".views[] | select(.timestamp | startswith(\"$DATE\")) | .uniques" 2>/dev/null || echo 0)
+
+          echo "$DATE,${VIEWS:-0},${UNIQUES:-0}" >> traffic-log.csv
+          sort -u -t',' -k1,1 traffic-log.csv -o traffic-log.csv
+
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add traffic-log.csv
+          git diff --cached --quiet || git commit -m "Daily traffic: $DATE"
+          git push
