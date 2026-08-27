@@ -15,10 +15,15 @@ jobs:
       - name: Fetch and save traffic data
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
         run: |
           DATE=$(date -u +%Y-%m-%d)
-          VIEWS=$(gh api repos/albertaharon/platforms-page/traffic/views --jq ".views[] | select(.timestamp | startswith(\"$DATE\")) | .count" 2>/dev/null || echo 0)
-          UNIQUES=$(gh api repos/albertaharon/platforms-page/traffic/views --jq ".views[] | select(.timestamp | startswith(\"$DATE\")) | .uniques" 2>/dev/null || echo 0)
+
+          RESPONSE=$(curl -s -H "Authorization: token $TRAFFIC_TOKEN" \
+            https://api.github.com/repos/albertaharon/platforms-page/traffic/views)
+
+          VIEWS=$(echo "$RESPONSE" | jq -r ".views[] | select(.timestamp | startswith(\"$DATE\")) | .count" 2>/dev/null | head -1)
+          UNIQUES=$(echo "$RESPONSE" | jq -r ".views[] | select(.timestamp | startswith(\"$DATE\")) | .uniques" 2>/dev/null | head -1)
 
           echo "$DATE,${VIEWS:-0},${UNIQUES:-0}" >> traffic-log.csv
           sort -u -t',' -k1,1 traffic-log.csv -o traffic-log.csv
